@@ -23,8 +23,10 @@
     "@popperjs/core": "^2.11.7",
     "@sveltejs/adapter-node": "^1.2.3",
     "classnames": "^2.3.2",
-    "ethers": "^6.2.2",
+    "ethers": "^6.2.3",
+    "eventemitter3": "^5.0.0",
     "flowbite": "^1.6.4",
-    "flowbite-svelte": "^0.34.2"
+    "flowbite-svelte": "^0.34.2",
+    "svelte-material-icons": "^3.0.4"
   }
 }
