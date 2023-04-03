@@ -10,7 +10,7 @@
     <div class="w-full h-[38px] col-start-2">
         <Logo/>
     </div>
-    <P class="px-2 lowercase flex flex-row-reverse items-center !font-bold !text-2xl text-indigo-900 dark:text-indigo-500">
+    <span class="px-2 lowercase flex flex-row-reverse items-center !font-bold !text-2xl text-indigo-900 dark:text-indigo-500">
         {activeApp}
-    </P>
+    </span>
 </div>
