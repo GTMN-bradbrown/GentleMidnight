@@ -3,7 +3,6 @@
     let activeAppComponent
     $: (async () => activeAppComponent =
         (await import(`./Apps/${activeApp}.svelte`)).default)()
-    $: console.log(activeAppComponent)
 </script>
 
 <div class="p-2 flex flex-col items-center">
