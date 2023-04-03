@@ -1,7 +1,9 @@
 export default {
-    triggers: ['init', 'accountsChanged', 'chainChanged', 'block'],
-    dependencies: ['gtmn', 'selectedAddress'],
-    func: async function() {
-        return await this.gtmn.balanceOf(this.selectedAddress)
+    id: 'gtmnBal',
+    trips: ['init', 'accountsChanged', 'chainChanged', 'block'],
+    needs: ['s_gtmn', 'selectedAddress'],
+    fn: async function() {
+        let { web3 } = this
+        return await web3.s_gtmn.balanceOf(web3.selectedAddress)
     }
 }

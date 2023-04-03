@@ -1,7 +1,9 @@
 export default {
-    triggers: ['init', 'accountsChanged', 'chainChanged'],
-    dependencies: ['provider', 'selectedAddress'],
-    func: async function() {
-        if (this.selectedAddress) return await provider.getSigner()
+    id: 'signer',
+    trips: ['init', 'accountsChanged', 'chainChanged'],
+    needs: ['provider', 'selectedAddress'],
+    fn: async function() {
+        let { web3 } = this
+        return web3.selectedAddress ? await web3.provider.getSigner() : null
     }
 }

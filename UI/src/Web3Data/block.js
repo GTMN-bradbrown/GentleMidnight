@@ -1,7 +1,9 @@
 export default {
-    triggers: ['init', 'block'],
-    dependencies: ['provider'],
-    func: async function(block) {
-        return block ?? await this.provider.getBlockNumber()
+    id: 'block',
+    trips: ['init', 'chainChanged'],
+    needs: ['provider'],
+    fn: async function(block) {
+        let { web3 } = this
+        return block ?? await web3.provider.getBlockNumber()
     }
 }

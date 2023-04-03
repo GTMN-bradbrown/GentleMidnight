@@ -2,10 +2,12 @@ import lpAbi from '../json/gtmnAbi.json'
 import gtmnData from '../json/gtmnData.json'
 
 export default {
-    triggers: ['init', 'accountsChanged', 'chainChanged'],
-    dependencies: ['provider'],
-    func: function() {
-        return new Contract(gtmnData.addr, gtmnAbi
-            , this.signer ?? this.provider)
+    id: 'lp',
+    trips: ['init', 'accountsChanged', 'chainChanged'],
+    needs: ['provider'],
+    fn: function() {
+        let { web3 } = this
+        return new Contract(gtmnData.addr, gtmnAbi,
+            web3.signer ?? web3.provider)
     }
 }

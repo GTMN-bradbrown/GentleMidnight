@@ -1,9 +1,9 @@
 export default {
-    id: 'lpBal',
+    id: 'natvBal',
     trips: ['init', 'accountsChanged', 'chainChanged', 'block'],
-    needs: ['lp', 'selectedAddress'],
+    needs: ['provider', 'selectedAddress'],
     fn: async function() {
         let { web3 } = this
-        return await web3.lp.balanceOf(web3.selectedAddress)
+        return await web3.provider.getBalance(web3.selectedAddress)
     }
 }
