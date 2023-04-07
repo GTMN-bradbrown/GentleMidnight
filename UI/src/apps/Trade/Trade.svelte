@@ -2,13 +2,13 @@
     import { Card, Accordion, AccordionItem, Button, P, Toast, A }
         from 'flowbite-svelte'
     import Plus from 'svelte-material-icons/Plus.svelte'
-    import Destination from './components/Destination.svelte'
+    import Destination from '../../components/Destination.svelte'
     import { Input, Output, Gas, Work, Summary }
-        from './components/TradeForm.js'
+        from '../../components/TradeForm.js'
     import { writable } from 'svelte/store'
-    import { Web3 } from '../../stores/Web3'
-    import explorers from '../../json/explorers.json'
-    import chains from '../../json/chains.js'
+    import { Web3 } from '../../../../stores/Web3'
+    import explorers from '../../../json/explorers.json'
+    import chains from '../../../../json/chains.js'
     let chainIdToName = Object.fromEntries(
         chains.map(obj => [[obj.value], [obj.name]])
     )

@@ -1,7 +1,7 @@
 <script>
     import { Select, Label } from 'flowbite-svelte'
-    import chains from '../../../json/chains.js'
-    import { Web3 } from '../../../stores/Web3';
+    import chains from '../../../../json/chains.js'
+    import { Web3 } from '../../../../stores/Web3';
     export let subreq
     let foo = subreq.dest
     $: otherChains = chains

@@ -2,8 +2,8 @@
     import AlertCircleOutline
         from 'svelte-material-icons/AlertCircleOutline.svelte'
     import Delete from 'svelte-material-icons/Delete.svelte'
-    import { Web3 } from '../../../stores/Web3.js'
-    import chains from '../../../json/chains.js'
+    import { Web3 } from '../../../../stores/Web3.js'
+    import chains from '../../../../json/chains.js'
     export let subreqs
     export let subreq
     let chainIdToName = Object.fromEntries(
