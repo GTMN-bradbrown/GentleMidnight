@@ -1,4 +1,8 @@
-<button on:click><slot></slot></button>
+<script>
+    export let disabled = false
+</script>
+
+<button {disabled} on:click><slot></slot></button>
 
 <style>
     button {
@@ -14,6 +18,7 @@
         cursor: pointer;
         border: none;
         transition: border-radius 0.125s ease;
+        user-select: none;
     }
     button:hover {
         background-color: #E0DBC2;
@@ -22,5 +27,9 @@
     button:active {
         background-color: #CCC7B0;
         border-radius: 25%;
+    }
+    button:disabled {
+        filter: brightness(0.5) saturate(0);
+        pointer-events: none;
     }
 </style>

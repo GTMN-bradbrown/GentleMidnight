@@ -13,7 +13,11 @@
     <Mask/>
     <div>
         {#each apps as app}
-            <Button on:click={() => onClick(app)}>{app}</Button>
+            <Button
+                disabled={app == $current}
+                on:click={() => onClick(app)}>
+                {app}
+            </Button>
         {/each}
     </div>
 {/if}
