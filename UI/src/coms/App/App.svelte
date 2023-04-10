@@ -1,7 +1,7 @@
 <script>
     import { current } from '@/stores/AppSelect.js'
     let app
-    $: $current, _()
+    $: _($current)
     async function _() {
         app = (await import(`@/coms/${$current}/index.js`)).app
     }
