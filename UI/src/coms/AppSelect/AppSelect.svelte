@@ -12,9 +12,8 @@
 {#if $show}
     <Mask/>
     <div>
-        {#each apps as app}
+        {#each apps.filter(app => app !== $current) as app}
             <Button
-                disabled={app == $current}
                 on:click={() => onClick(app)}>
                 {app}
             </Button>
