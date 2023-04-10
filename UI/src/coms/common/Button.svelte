@@ -10,8 +10,8 @@
         height: 13mm;
         border-radius: 50%;
         font-weight: 600;
-        color: #3F00FF;
-        background-color: #F6F1D5;
+        color: #F6F1D5;
+        background-color: #3F00FF;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,15 +21,24 @@
         user-select: none;
     }
     button:hover {
-        background-color: #E0DBC2;
+        background-color: #5017FF;
         border-radius: 45%;
     }
     button:active {
-        background-color: #CCC7B0;
+        background-color: #602CFF;
         border-radius: 25%;
     }
     button:disabled {
-        filter: brightness(0.5) saturate(0);
+        filter: brightness(0.75) saturate(0);
         pointer-events: none;
+    }
+    @media (prefers-color-scheme: dark) {
+        button {
+            color: #3F00FF;
+            background-color: #F6F1D5;
+        }
+        button:hover { background-color: #E0DBC2; }
+        button:active { background-color: #CCC7B0; }
+        button:disabled { filter: brightness(0.5) saturate(0); }
     }
 </style>
