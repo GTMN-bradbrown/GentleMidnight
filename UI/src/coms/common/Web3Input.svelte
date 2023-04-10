@@ -36,6 +36,7 @@
         background: transparent;
         border: none;
         border-bottom: 2px solid #3F00FF;
+        border-radius: 2px;
         caret-color: #3F00FF;
         color: #3F00FF;
         font-family: monospace;
