@@ -18,5 +18,6 @@
         justify-content: center;
         margin-top: 5mm;
         padding: 0 1rem;
+        max-width: 280px;
     }
 </style>
