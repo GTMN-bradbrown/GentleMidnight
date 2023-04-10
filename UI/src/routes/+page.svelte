@@ -1,10 +1,12 @@
 <script>
     import { Header } from '@/coms/Header'
-    import AppSelect from '../coms/AppSelect/AppSelect.svelte';
+    import AppSelect from '../coms/AppSelect/AppSelect.svelte'
+    import { App } from '@/coms/App'
 </script>
 
 <AppSelect/>
 <Header/>
+<App/>
 
 <!-- <script>
     let apps = ['TRADE', 'MINE', 'STATS', 'HOLD', 'DUST', 'STAKE', 'CLAIM']
