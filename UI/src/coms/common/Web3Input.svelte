@@ -35,12 +35,22 @@
     input[type="text"] {
         background: transparent;
         border: none;
-        border-bottom: 2px solid #F6F1D5;
-        caret-color: #F6F1D5;
-        color: #F6F1D5;
+        border-bottom: 2px solid #3F00FF;
+        caret-color: #3F00FF;
+        color: #3F00FF;
         font-family: monospace;
     }
     input[type="range"] {
-        accent-color: #F6F1D5;
+        accent-color: #3F00FF;
+    }
+    @media (prefers-color-scheme: dark) {
+        input[type="text"] {
+            border-bottom: 2px solid #F6F1D5;
+            caret-color: #F6F1D5;
+            color: #F6F1D5;
+        }
+        input[type="range"] {
+            accent-color: #F6F1D5;
+        }
     }
 </style>
