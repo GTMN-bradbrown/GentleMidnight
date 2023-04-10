@@ -3,14 +3,15 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-      "dev": "vite dev",
-      "build": "vite build",
-      "preview": "vite preview"
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview"
     },
     "type": "module",
     "dependencies": {
-      "@sveltejs/adapter-node": "^1.2.3",
-      "svelte-preprocess": "^4.10.7",
-      "ethers": "^6.2.3"
+        "@sveltejs/adapter-node": "^1.2.3",
+        "ethers": "^6.3.0",
+        "eventemitter3": "^5.0.0",
+        "svelte-preprocess": "^4.10.7"
     }
-  }
+}
