@@ -1,2 +1,2 @@
-export default ['Stake', 'Dust', 'Claim', 'Mine', 'Trade', 'Hold',
+export default ['Mine', 'Stake', 'Dust', 'Claim', 'Trade', 'Hold',
     'Stats']
