@@ -1,10 +1,10 @@
 <script>
     export let decimals = 18, max = 2000000000000000000n, value
-    let textValue, rangeValue
+    let numValue, rangeValue
     function onTextInput() {
-        if (textValue.match(/[^\d\.]|\..*\.|^\.?$/))
+        let tmp = `${numValue}`
+        if (tmp.match(/[^\d\.]|\..*\.|^\.?$/))
             return value = rangeValue = undefined
-        let tmp = textValue
         let index = tmp.match(/\./)?.index ?? tmp.length - 1
         let fracs = tmp.length - 1 - index
         let zeros = Array(Math.max(decimals - fracs, 0)).fill('0').join('')
@@ -20,11 +20,11 @@
         else tmp = `${tmp.slice(0, tmp.length - decimals)}.${
             tmp.slice(tmp.length - decimals)}`
         tmp = tmp.replace(/\.?0*$/, '')
-        textValue = tmp
+        numValue = tmp
     }
 </script>
 
-<input bind:value={textValue} on:input={onTextInput} type="text">
+<input bind:value={numValue} on:input={onTextInput} type="number">
 <input bind:value={rangeValue} on:input={onRangeInput} type="range">
 
 <style>
