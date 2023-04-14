@@ -53,7 +53,10 @@ export default new class extends EventEmitter {
                 .map(app => chain.apps.includes(app))
                 .includes(true))
         let nonpatients = Object.keys(data)
-            .filter(id => !patients.map(patient => patient.id).includes(id))
+            .filter(id =>
+                !patients.map(patient => patient.id).includes(id))
+        console.log('patients', patients)
+        console.log('nonpatients', nonpatients)
         nonpatients.forEach(key => tmp[key] = chain.data[key])
         let thunk = await this.evaluate(tmp, patients, chain)
         while (typeof thunk == 'function')
@@ -67,15 +70,27 @@ export default new class extends EventEmitter {
     async evaluate(tmp, patients, chain) {
         console.log('evaluate')
         for (let patient of patients) {
+            console.log('patient', patient)
+            console.log('tmp', tmp)
             let { fn, id } = patient
             let needs = patient.needs.map(need => tmp[need])
-            if (needs.includes(null)) tmp[id] = null
-            else if (needs.includes(undefined)) continue
-            else tmp[id] = await fn.bind({ chain, medium: this })()
+            if (needs.includes(null)) {
+                console.log('null need')
+                tmp[id] = null
+            }
+            else if (needs.includes(undefined)) {
+                console.log('undefined need')
+                continue
+            }
+            else {
+                console.log('executing fn')
+                tmp[id] = await fn.bind({ chain, medium: this })()
+            }
             patients.splice(patients.indexOf(patient), 1)
         }
-        if (patients.length > 0) return () => this.evaluate(chain, patients)
-        console.log(chain)
+        console.log(tmp)
+        if (patients.length > 0)
+            return () => this.evaluate(tmp, patients, chain)
     }
 
 }
