@@ -4,18 +4,20 @@ import { JsonRpcProvider } from 'ethers'
 export default {
     id: 'provider',
     trips: ['newWatch'],
-    apps: ['stake'],
+    apps: ['stake', 'mine'],
     needs: [],
     fn: function() {
         let { chain, medium } = this
-        let { id, poll, data } = chain
+        let { id, poll } = chain
         let provider = new JsonRpcProvider(gtmn[id].rpc)
         if (poll) clearInterval(poll)
         chain.poll = setInterval(async () => {
-            console.log('poll')
-            let block = await provider.getBlockNumber().catch(() => {})
+            let block = await provider.getBlockNumber()
+                .catch(() => {})
+            console.log('poll', block, chain.data.block)
             if (block === undefined) return
-            if (block > data[block] || data[block] === undefined)
+            if (block > chain.data.block
+            || chain.data.block === undefined)
                 medium.trip({ trip: 'block', chain, block })
         }, 5000);
         return provider
